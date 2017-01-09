@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BookRoom extends Model
 {
     /**
-    *The table define category model
+    *The table define book_rooms model
     */
     protected $table = 'book_rooms';
 

@@ -8,7 +8,7 @@ class Gumshoe extends Model
 {
   
     /**
-     * The table define category model
+     * The table define gumshoes model
      */
     protected $table = 'gumshoes';
 

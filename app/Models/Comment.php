@@ -8,7 +8,7 @@ class Comment extends Model
 {
   
     /**
-     * The table define category model
+     * The table define comment model
      */
     protected $table = 'comments';
 
