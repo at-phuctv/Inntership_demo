@@ -17,7 +17,7 @@ class BookRoom extends Model
      * @var array
      */
     protected $fillable = [
-    'id', 'user_id', 'post_id',
+        'id', 'user_id', 'post_id',
     ];
     /**
      * [relation with post model]
@@ -35,6 +35,6 @@ class BookRoom extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 }
