@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -52,6 +53,11 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'gender' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'image' => 'required',
+
         ]);
     }
 
@@ -64,10 +70,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+            $now = Carbon::now();
+            $image = $now->toDateTimeString().$data['image']->getClientOriginalName();
+            $path=config('upload.image_user');
+            $data['image']->move($path, $image);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'gender' => $data['gender'],
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'image' => $image,
         ]);
     }
 }

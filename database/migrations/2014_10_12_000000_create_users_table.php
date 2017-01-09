@@ -15,9 +15,20 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+<<<<<<< Updated upstream
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+=======
+            $table->string('name', 255);
+            $table->string('email', 255)->nullable();
+            $table->string('password', 100)->nullable();
+            $table->integer('gender')->nullable()->length(1);
+            $table->string('phone', 15)->nullable();
+            $table->string('address', 320)->nullable();
+            $table->string('image', 320)->nullable();
+            $table->integer('role_id')->unsigned()->default(2);
+>>>>>>> Stashed changes
             $table->rememberToken();
             $table->timestamps();
         });
