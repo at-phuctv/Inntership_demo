@@ -21,18 +21,18 @@ class Gumshoe extends Model
         'id', 'user_id', 'post_id',
     ];
     /**
-     * [relation with post model]
+     * Create relationship to model post
      *
-     * @return [type] [table post]
+     * @return Relasionship
      */
     public function post()
     {
         return $this->belongsTo('App\Models\Post');
     }
     /**
-     * [relation with user model]
+     * Create relationship to model user
      *
-     * @return [type] [table user]
+     * @return Relasionship
      */
     public function user()
     {

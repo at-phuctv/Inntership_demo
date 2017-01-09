@@ -21,9 +21,9 @@ class Image extends Model
         'id', 'image_name', 'post_id',
     ];
     /**
-     * [relation with post model]
+     * Create relationship to model post
      *
-     * @return [type] [table post]
+     * @return Relasionship
      */
     public function post()
     {

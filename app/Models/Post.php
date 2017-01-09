@@ -20,63 +20,63 @@ class Post extends Model
         'id', 'title', 'description', 'acrege', 'address', 'category_id',
     ];
     /**
-     * [relation with category model]
+     * Create relationship to model category
      *
-     * @return [type] [table category]
+     * @return Relasionship
      */
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
     }
     /**
-     * [relation with user model]
+     * Create relationship to model user
      *
-     * @return [type] [table user]
+     * @return Relasionship
      */
     public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
     /**
-     * [relation with image model]
+     * Create relationship to model image
      *
-     * @return [type] [table image]
+     * @return Relasionship
      */
     public function image()
     {
         return $this->hasMany('App\Models\Image');
     }
     /**
-     * [relation with comment model]
+     * Create relationship to model coment
      *
-     * @return [type] [table comment]
+     * @return Relasionship
      */
     public function comment()
     {
         return $this->hasMany('App\Models\Comment');
     }
     /**
-     * [relation with gumshoe model]
+     * Create relationship to model gumshoe
      *
-     * @return [type] [table gumshoe]
+     * @return Relasionship
      */
     public function gumshoe()
     {
         return $this->hasMany('App\Models\Gumshoe');
     }
     /**
-     * [relation with book_room model]
+     * Create relationship to model bookRoom
      *
-     * @return [type] [table book_room]
+     * @return Relasionship
      */
     public function bookRoom()
     {
         return $this->hasMany('App\Models\BookRoom');
     }
     /**
-     * [relation with visitor_book_room model]
+     * Create relationship to model visitorBookRoom
      *
-     * @return [type] [table visitor_book_room]
+     * @return Relasionship
      */
     public function visitorBookRoom()
     {

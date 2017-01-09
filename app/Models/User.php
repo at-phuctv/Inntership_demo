@@ -26,4 +26,44 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Create relationship to model comment
+     *
+     * @return Relasionship
+     */
+    public function comment()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    /**
+     * Create relationship to model gumshoe
+     *
+     * @return Relasionship
+     */
+    public function gumshoe()
+    {
+        return $this->hasMany('App\Models\Gumshoe');
+    }
+
+    /**
+     * Create relationship to model book_room
+     *
+     * @return Relasionship
+     */
+    public function bookRoom()
+    {
+        return $this->hasMany('App\Models\BookRoom');
+    }
+
+    /**
+     * Create relationship to model comment
+     *
+     * @return Relasionship
+     */
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
 }

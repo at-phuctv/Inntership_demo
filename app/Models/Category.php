@@ -20,9 +20,9 @@ class Category extends Model
         'id', 'name', 'introduce', 'image',
     ];
     /**
-     * [relation with post model]
+     * Create relationship to model post
      *
-     * @return [type] [table post]
+     * @return Relasionship
      */
     public function post()
     {

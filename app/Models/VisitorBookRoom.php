@@ -20,9 +20,9 @@ class VisitorBookRoom extends Model
         'id', 'name', 'phone', 'email', 'address', 'post_id',
     ];
     /**
-     * [relation with post model]
+     * Create relationship to model post
      *
-     * @return [type] [table post]
+     * @return Relasionship
      */
     public function post()
     {

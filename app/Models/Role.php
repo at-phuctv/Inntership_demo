@@ -20,9 +20,9 @@ class Role extends Model
         'id', 'role',
     ];
     /**
-     * [relation with role model]
+     * Create relationship to model user
      *
-     * @return [type] [table role]
+     * @return Relasionship
      */
     public function user()
     {
