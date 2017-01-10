@@ -65,9 +65,9 @@
 
                             <div class="col-md-6">
                                 <select name="gender">
-                                    <option value="{{trans('auth.male')}}">{{trans('auth.male')}}</option>
-                                    <option value="{{trans('auth.female')}}">{trans('auth.female')}}</option>
-                                    <option value="{{trans('auth.other')}}">{trans('auth.other')}}</option>
+                                    <option value="{{trans('auth.male')}}">{{trans('auth.male_value')}}</option>
+                                    <option value="{{trans('auth.female')}}">{trans('auth.female_value')}}</option>
+                                    <option value="{{trans('auth.other')}}">{trans('auth.other_value')}}</option>
                                     
                                 </select>
                             </div>

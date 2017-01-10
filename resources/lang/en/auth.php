@@ -23,9 +23,9 @@ return [
     'password' => 'Password',
     'confim_password' => 'Confirm Password',
     'gender' => 'Gender',
-    'male' => 'Male',
-    'female' => 'Female',
-    'other' => 'Other',
+    'male_value' => 'Male',
+    'female_value' => 'Female',
+    'other_value' => 'Other',
     'phone' => 'Phone',
     'register' => 'Register',
     'image' => 'Image',
@@ -35,7 +35,9 @@ return [
     'forget_password' => 'Forgot Your Password?',
     'reset_password' => 'Reset Password',
     'send_password_reset' => 'Send Password Reset Link',
-    '' => '',
+    'logout' => 'Logout',
+    'login_success' => 'Your are login success',
+    ''
 
 
 ];
