@@ -11,5 +11,5 @@ return [
 
 
 
-    'six' => '6',
+    'limit_category_six' => '6',
 ];

@@ -30,7 +30,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $listCate=$this->categoryRepository->paginate(config('cons.six'));
+        $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
         return view('category.index', compact('listCate'));
     }
 
