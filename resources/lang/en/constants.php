@@ -15,5 +15,7 @@ return [
 
     'title' => 'The website search online',
     'search_for' => "What are you looking for?",
+    'copy_right_by' => '&copy; 2017. All rights reserved | Design by PhucTV ',
+    'image' => 'upload'.DIRECTORY_SEPARATOR,
 
 ];

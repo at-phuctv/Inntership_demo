@@ -34,10 +34,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="header">
        <div class="col-sm-8 header-left">
            <div class="logo">
-            <a href="index.html"><img src="upload/logo.png" alt=""/></a>
+            <a href="index.html"><img src="{{asset(trans('constants.image'))}}/logo.png" alt=""/></a>
            </div>
            <div class="menu">
-              <a class="toggleMenu" href="#"><img src="upload/nav.png" alt="" /></a>
+              <a class="toggleMenu" href="#"><img src="{{asset(trans('constants.image'))}}/nav.png" alt="" /></a>
                 <ul class="nav" id="nav">
                 @foreach($listCate as $value)
                   <li><a href="">{{$value->name}}</a></li>
@@ -66,7 +66,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <div class="clearfix"></div>
             </div>
               <div class="col-sm-4 header_right">
-                <div id="loginContainer"><a href="#" id="loginButton"><img src="upload/login.png"><span>{!! trans('auth.login') !!}</span></a>
+                <div id="loginContainer"><a href="#" id="loginButton"><img src="{{asset(trans('constants.image'))}}/login.png"><span>{!! trans('auth.login') !!}</span></a>
                 <div id="loginBox">                
                     <form id="loginForm">
                             <fieldset id="body">
@@ -95,13 +95,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
            <div class="dropdown-buttons">   
                   <div class="dropdown-button">                 
                   <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                  <option>Dubai</option>  
+                  <option value=""></option>  
             </select>
           </div>
              <div class="dropdown-button">
             <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                  <option value="0">Hotels</option> 
-            <option value="1">tempor</option>
+                  <option value=""></option> 
             </select>
            </div>
            </div>  
@@ -123,7 +122,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
        <h3></h3>
        <form>
     <span>
-      <i><img src="upload/mail.png" alt=""></i>
+      <i><img src="{{asset(trans('constants.image'))}}/mail.png" alt=""></i>
         <input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
         <label class="btn1 btn2 btn-2 btn-2g"> <input name="submit" type="submit" id="submit" value="Subscribe"> </label>
         <div class="clearfix"> </div>
@@ -132,27 +131,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
     <div class="footer_grids">
        <div class="footer-grid">
-      <h4>Ipsum Quis</h4>
+      <h4></h4>
       <ul class="list1">
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="#">Mirum est</a></li>
-        <li><a href="#">Placerat facer</a></li>
-        <li><a href="#">Claritatem</a></li>
-        <li><a href="#">Sollemnes </a></li>
+        <li><a href="contact.html"></a></li>
       </ul>
       </div>
       <div class="footer-grid">
-      <h4>Quis Ipsum</h4>
+      <h4></h4>
       <ul class="list1">
-        <li><a href="#">Placerat facer</a></li>
-        <li><a href="#">Claritatem</a></li>
-        <li><a href="#">Sollemnes </a></li>
-        <li><a href="#">Claritas</a></li>
-        <li><a href="#">Mirum est</a></li>
+        <li><a href="#"></a></li>
       </ul>
       </div>
       <div class="footer-grid last_grid">
-      <h4>Follow Us</h4>
+      <h4></h4>
       <ul class="footer_social wow fadeInLeft" data-wow-delay="0.4s">
         <li><a href=""> <i class="fb"> </i> </a></li>
         <li><a href=""><i class="tw"> </i> </a></li>
@@ -160,7 +151,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <li><a href=""><i class="u_tube"> </i> </a></li>
       </ul>
       <div class="copy wow fadeInRight" data-wow-delay="0.4s">
-              <p> &copy; 2017 Hotel Deluxe. All rights reserved | Design by <a href="http://demo.com/">Phuctv</a></p>
+              <p> {!! trans('constants.copy_right_by') !!}</p>
           </div>
       </div>
       <div class="clearfix"> </div>
