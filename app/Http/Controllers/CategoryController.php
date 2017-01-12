@@ -42,7 +42,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
+        return view('category.create', compact('listCate'));
     }
 
     /**
@@ -70,7 +71,8 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = $this->categoryRepository->find($id);
-        return view('category.show', compact('category'));
+        $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
+        return view('category.show', compact('category', 'listCate'));
     }
 
     /**
@@ -83,7 +85,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = $this->categoryRepository->find($id);
-        return view('category.edit', compact('category'));
+        $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
+        return view('category.edit', compact('category', 'listCate'));
     }
     /**
      * Update the specified resource in storage.

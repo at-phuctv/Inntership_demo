@@ -20,8 +20,9 @@ class CreatePostsTable extends Migration
             $table->string('acreage',20);
             $table->float('price');
             $table->string('address',200);
+            $table->string('city',200);
             $table->integer('category_id')->unsigned();
-             $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

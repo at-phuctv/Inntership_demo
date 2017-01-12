@@ -1,0 +1,29 @@
+{
+  "name": "Inntership_demo",
+  "description": "fronent project",
+  "main": "demo",
+  "authors": [
+    "at-phuctv <phuctv@asiantech.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "123456"
+  ],
+  "homepage": "https://github.com/at-phuctv/Inntership_demo",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "wow": "^1.1.2",
+    "animate.css": "^3.5.2",
+    "swipebox": "^1.4.4",
+    "easydropdown": "^2.1.4"
+  }
+}

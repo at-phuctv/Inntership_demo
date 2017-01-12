@@ -17,7 +17,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'title', 'description', 'acrege', 'address', 'category_id',
+        'id', 'title', 'description', 'acrege', 'address', 'city', 'category_id',
     ];
     /**
      * Create relationship to model category
