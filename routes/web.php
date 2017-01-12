@@ -23,4 +23,3 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function()
 {
     Route::resource('category', 'CategoryController');
 });
-

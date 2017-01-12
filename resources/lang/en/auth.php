@@ -27,6 +27,7 @@ return [
     'female_value' => 'Female',
     'other_value' => 'Other',
     'phone' => 'Phone',
+    'city' => 'City',
     'register' => 'Register',
     'image' => 'Image',
     'address' => 'Address',
