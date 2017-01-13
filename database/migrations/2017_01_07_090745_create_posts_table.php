@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->float('price');
             $table->string('address',200);
             $table->string('city',200);
+            $table->integer('follow');
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();

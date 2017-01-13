@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Custom Theme files -->
 <link href="{{ URL::asset('css/style.css') }}" rel='stylesheet' type='text/css' />
+<link href="{{ URL::asset('css/templade.css') }}" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -66,9 +67,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <div class="clearfix"></div>
             </div>
               <div class="col-sm-4 header_right">
+                @if (!Auth::user())
                 <div id="loginContainer"><a href="#" id="loginButton"><img src="{{asset(trans('constants.image'))}}/login.png"><span>{!! trans('auth.login') !!}</span></a>
                 <div id="loginBox">                
-                    <form id="loginForm">
+                    <form id="loginForm" action="{{ url('/home') }}" method="POST">
                             <fieldset id="body">
                               <fieldset>
                                       <label for="email">{!! trans('auth.email_address') !!}</label>
@@ -85,6 +87,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </form>
                       </div>
                    </div>
+                  @else
+                       <div id="loginContainer" class="image_user"><a href="#" id="loginButton"><img id="imageuser" src="{{asset(trans('constants.image'))}}/2017-01-12 04:14:52a.jpg">
+
+                       <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{trans('auth.logout')}}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                   </div>
+
+                  @endif
                      <div class="clearfix"></div>
                    </div>
                   <div class="clearfix"></div>

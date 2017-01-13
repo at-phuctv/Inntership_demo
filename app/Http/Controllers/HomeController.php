@@ -3,17 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\CategoryRepository;
+use App\Repositories\PostRepository;
 
 class HomeController extends Controller
 {
+
+    protected $categoryRepository;
+
+    protected $postRepository;
+
     /**
-     * Create a new controller instance.
+     * Constructor for category controller
      *
-     * @return void
+     * @param CategoryRepository $categoryRepository [description]
+     * @param PostRepository     $postRepository     [description]
      */
-    public function __construct()
+    public function __construct(CategoryRepository $categoryRepository, PostRepository $postRepository)
     {
-        $this->middleware('auth');
+        $this->categoryRepository = $categoryRepository;
+        $this->postRepository = $postRepository;
     }
 
     /**
@@ -23,6 +32,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $listPost=$this->postRepository->listPost();
+        $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
+        return view('home', compact('listCate', 'listPost'));
     }
 }
