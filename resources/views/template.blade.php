@@ -70,7 +70,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 @if (!Auth::user())
                 <div id="loginContainer"><a href="#" id="loginButton"><img src="{{asset(trans('constants.image'))}}/login.png"><span>{!! trans('auth.login') !!}</span></a>
                 <div id="loginBox">                
-                    <form id="loginForm" action="{{ url('/home') }}" method="POST">
+                    <form id="loginForm" action="{{ route('home') }}" method="POST">
                             <fieldset id="body">
                               <fieldset>
                                       <label for="email">{!! trans('auth.email_address') !!}</label>
