@@ -26,7 +26,7 @@ class EditColumnRoleIdUserTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+             $table->integer('role_id')->unsigned()->change();
         });
     }
 
