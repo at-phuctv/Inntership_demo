@@ -27,4 +27,41 @@ class PostRepository extends Repository implements InterfaceRepository
         return $this->model->with('image')
         ->orderBy('created_at', 'DESC')->get();
     }
+    /**
+     * List all post of search.
+     *
+     * @param category   $category   category
+     * @param priceStart $priceStart priceStart
+     * @param priceEnd   $priceEnd   priceEnd
+     * @param city       $city       city
+     *
+     * @return Colection
+     */
+    public function searchList($category, $priceStart, $priceEnd, $city)
+    {
+        $result = $this->model->with('image')
+        ->with('category')
+        ->where('price', '>=', $priceStart)
+        ->where('price', '<=', $priceEnd);
+        if (empty($category) and empty($city)) {
+            return $result;
+        } else {
+            if (!empty($category) and !empty($city)) {
+                return $result
+                ->where('city', $city)
+                ->whereHas('category', function ($query) use ($category) {
+                    $query->where('id', $category);
+                });
+            } else {
+                if (empty($category)) {
+                    return $result->where('city', $city);
+                } else {
+                    return $result
+                    ->whereHas('category', function ($query) use ($category) {
+                        $query->where('id', $category);
+                    });
+                }
+            }
+        }
+    }
 }

@@ -110,31 +110,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    </div>
    <div class="banner">
       <div class="container_wrap">
-      <form>
-       {{ csrf_field() }}
+      <form action="{{route('search')}}" method="get">
       <h1>{!! trans('constants.search_for') !!}</h1>
            <div class="dropdown-buttons">   
                   <div class="dropdown-button">                 
-                  <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                   <option>{{ trans('constants.category') }}</option>
+                  <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="category">
+                   <option value="">{{ trans('constants.category') }}</option>
                    @foreach($listCate as $value)
-                   <option value="">{{$value->name}}</option>  
+                   <option value="{{ $value->id }}">{{$value->name}}</option>  
                    @endforeach
             </select>
           </div>
              <div class="dropdown-button">
-            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                   <option>{{ trans('constants.start_price') }}</option>
+            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="start_price">
+                   <option value="{{config('constants.price_start_search')}}">{{ trans('constants.start_price') }}</option>
+                   @foreach($listPriceStart as $value)
+                   <option>{{ $value }}</option>
+                   @endforeach
             </select>
            </div>
            <div class="dropdown-button">
-            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                   <option>{{ trans('constants.end_price') }}</option>
+            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="end_price">
+                   <option value="{{config('constants.price_end_search')}}">{{ trans('constants.end_price') }}</option>
+                   @foreach($listPriceEnd as $value)
+                   <option>{{ $value }}</option>
+                   @endforeach
             </select>
            </div>
            <div class="dropdown-button">
-            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                   <option>{{ trans('constants.city') }}</option>
+            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="city">
+                   <option value="">{{ trans('constants.city') }}</option>
+                    @foreach($listCity as $value)
+                   <option>{{ $value->city }}</option>
+                   @endforeach
             </select>
            </div>
            </div>  
