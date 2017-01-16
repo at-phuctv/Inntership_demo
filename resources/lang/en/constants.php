@@ -17,5 +17,11 @@ return [
     'search_for' => "What are you looking for?",
     'copy_right_by' => '&copy; 2017. All rights reserved | Design by PhucTV ',
     'image' => 'upload'.DIRECTORY_SEPARATOR,
+    'start_price' => 'Start Price',
+    'end_price' => 'End Price',
+    'city' => 'City',
+    'post_news' => 'Post News',
+    'follow_post' => 'Follow Post',
+    'create_post' => 'Create Post',
 
 ];
