@@ -23,5 +23,6 @@ return [
     'post_news' => 'Post News',
     'follow_post' => 'Follow Post',
     'create_post' => 'Create Post',
+    'category' => 'Category',
 
 ];
