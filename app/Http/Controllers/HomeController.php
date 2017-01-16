@@ -44,8 +44,9 @@ class HomeController extends Controller
         arsort($listPriceEnd);
         array_pop($listPriceEnd);
         $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
+        $listCateSearch=DB::table('categories')->get();
         $listCity=DB::table('cities')->get();
-        return view('home', compact('listCate', 'listPost', 'listPriceStart', 'listPriceEnd', 'listCity'));
+        return view('home', compact('listCate', 'listCateSearch', 'listPost', 'listPriceStart', 'listPriceEnd', 'listCity'));
     }
     /**
      * Search post with keywork

@@ -116,7 +116,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   <div class="dropdown-button">                 
                   <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="category">
                    <option value="">{{ trans('constants.category') }}</option>
-                   @foreach($listCate as $value)
+                   @foreach($listCateSearch as $value)
                    <option value="{{ $value->id }}">{{$value->name}}</option>  
                    @endforeach
             </select>
