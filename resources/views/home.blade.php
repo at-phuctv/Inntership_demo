@@ -1,17 +1,30 @@
-@extends('layouts.app')
+@extends('template')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{trans('auth.login_success')}}</div>
-
-                <div class="panel-body">
-                {{trans('auth.login_success')}}
+  <div class="col-md-2 post_home">
+            <ul class="nav nav-sidebar">
+              <li><a href="#">{{ trans('constants.post_news') }}</a></li>
+              <li><a href="#">{{ trans('constants.follow_post') }}</a></li>
+              <li><a href="#">{{ trans('constants.create_post') }}</a></li>
+            </ul>
+          </div>
+  <div class="col-md-10">
+          @foreach($listPost as $value)
+          <div class="welcome-top">
+          <div class="row">
+                 <div class="col-md-8 welcome-text">
+                    <h3 class="tittle two">{{ $value->title}}</h3>
+                    <p>{{ $value->description}}</p>
+                    <p>{{ $value->acreage}}</p>
+                    <p>{{ $value->price}}</p>
+                    <p>{{ $value->address}}</p>
+                  </div>
+                   <div class="col-md-4 welcome-img">
+                     <img class="img-responsive " src="{{ trans('constants.image')}}" alt="">  
+                   </div>
+                  <div class="clearfix"></div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </div>
+            @endforeach
+  </div>
 @endsection

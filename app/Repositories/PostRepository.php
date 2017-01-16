@@ -24,6 +24,7 @@ class PostRepository extends Repository implements InterfaceRepository
      */
     public function listPost()
     {
-        return $this->model->orderBy('created_at', 'DESC')->get();
+        return $this->model->with('image')
+        ->orderBy('created_at', 'DESC')->get();
     }
 }

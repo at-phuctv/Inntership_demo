@@ -70,7 +70,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 @if (!Auth::user())
                 <div id="loginContainer"><a href="#" id="loginButton"><img src="{{asset(trans('constants.image'))}}/login.png"><span>{!! trans('auth.login') !!}</span></a>
                 <div id="loginBox">                
-                    <form id="loginForm" action="{{ route('home') }}" method="POST">
+                    <form id="loginForm" action="{{ route('login') }}" method="POST">
+                    {{ csrf_field() }}
                             <fieldset id="body">
                               <fieldset>
                                       <label for="email">{!! trans('auth.email_address') !!}</label>
@@ -87,6 +88,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </form>
                       </div>
                    </div>
+
                   @else
                        <div id="loginContainer" class="image_user"><a href="#" id="loginButton"><img id="imageuser" src="{{asset(trans('constants.image'))}}/2017-01-12 04:14:52a.jpg">
 
@@ -96,7 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             {{trans('auth.logout')}}
                                         </a>
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                    </div>
@@ -108,21 +110,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    </div>
    <div class="banner">
       <div class="container_wrap">
+      <form>
+       {{ csrf_field() }}
       <h1>{!! trans('constants.search_for') !!}</h1>
            <div class="dropdown-buttons">   
                   <div class="dropdown-button">                 
                   <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                  <option value=""></option>  
+                   <option>{{ trans('constants.category') }}</option>
+                   @foreach($listCate as $value)
+                   <option value="">{{$value->name}}</option>  
+                   @endforeach
             </select>
           </div>
              <div class="dropdown-button">
             <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
-                  <option value=""></option> 
+                   <option>{{ trans('constants.start_price') }}</option>
+            </select>
+           </div>
+           <div class="dropdown-button">
+            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                   <option>{{ trans('constants.end_price') }}</option>
+            </select>
+           </div>
+           <div class="dropdown-button">
+            <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                   <option>{{ trans('constants.city') }}</option>
             </select>
            </div>
            </div>  
-        <form>
-        <input type="text" value="Keyword, name, date, ..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Keyword, name, date, ...';}">
           <div class="contact_btn">
                  <label class="btn1 btn-2 btn-2g"><input name="submit" type="submit" id="submit" value="Search"></label>
               </div>
@@ -176,4 +191,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       </div>
    </div>
 </body>
-</html>   
+</html>
