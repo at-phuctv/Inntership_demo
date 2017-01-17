@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function index()
     {
         $listPost=$this->postRepository->listPost();
-        $listSearchPrice=SearchPrice::all();
+        $listSearchPrice=SearchPrice::limit(config('constants.limit'))->get();
         $listPriceStart=$listPriceEnd=array();
         foreach ($listSearchPrice as $value) {
             $listPriceStart[$value->id]=$listPriceEnd[$value->id]=$value->search_price;
@@ -46,8 +46,8 @@ class HomeController extends Controller
         arsort($listPriceEnd);
         array_pop($listPriceEnd);
         $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
-        $listCateSearch=Category::all();
-        $listCity=City::all();
+        $listCateSearch=Category::limit(config('constants.limit'))->get();
+        $listCity=City::limit(config('constants.limit'))->get();
         return view('home', compact('listCate', 'listCateSearch', 'listPost', 'listPriceStart', 'listPriceEnd', 'listCity'));
     }
     /**
