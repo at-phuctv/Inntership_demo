@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
 use App\Repositories\PostRepository;
-use DB;
+use App\Models\SearchPrice;
+use App\Models\Category;
+use App\Models\City;
 
 class HomeController extends Controller
 {
@@ -34,7 +36,7 @@ class HomeController extends Controller
     public function index()
     {
         $listPost=$this->postRepository->listPost();
-        $listSearchPrice=DB::table('search_prices')->get();
+        $listSearchPrice=SearchPrice::all();
         $listPriceStart=$listPriceEnd=array();
         foreach ($listSearchPrice as $value) {
             $listPriceStart[$value->id]=$listPriceEnd[$value->id]=$value->search_price;
@@ -44,8 +46,8 @@ class HomeController extends Controller
         arsort($listPriceEnd);
         array_pop($listPriceEnd);
         $listCate=$this->categoryRepository->paginate(config('constants.limit_category_six'));
-        $listCateSearch=DB::table('categories')->get();
-        $listCity=DB::table('cities')->get();
+        $listCateSearch=Category::all();
+        $listCity=City::all();
         return view('home', compact('listCate', 'listCateSearch', 'listPost', 'listPriceStart', 'listPriceEnd', 'listCity'));
     }
     /**
