@@ -24,3 +24,4 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function()
     Route::resource('category', 'CategoryController');
 });
 Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/follow-post/{id}', 'API\FollowPostController@follow' );
