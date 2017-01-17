@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     /**
-    *The table define book_rooms model
+    *The table define cities model
     */
     protected $table = 'cities';
 
