@@ -4,7 +4,7 @@ $(document).ready(function(){
         var dataLogin = $(this).attr('dataUser');
         var postId = $(this).val();
         url += postId;
-        if(dataLogin.length) {
+        if(dataLogin) {
             var get = "GET";
             $.ajax({
                 type: get,
