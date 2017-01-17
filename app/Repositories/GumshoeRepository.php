@@ -21,8 +21,8 @@ class GumshoeRepository extends Repository implements InterfaceRepository
     /**
      * Find status follow post of user login
      *
-     * @param user_id $user_id id user login
-     * @param post_id $post_id id post
+     * @param userId $userId id user login
+     * @param postId $postId id post
      *
      * @return colection
      */
