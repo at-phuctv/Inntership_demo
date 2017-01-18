@@ -22,6 +22,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--webfont-->
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="{{ URL::asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript">
+  var url = '{{ route('get.post.follow') }}';
+</script>
 <script type="text/javascript" src="{{ URL::asset('js/login.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/style.js')}}"></script>
 <script src="{{ URL::asset('bower_components/easydropdown/src/jquery.easydropdown.js') }}"></script>

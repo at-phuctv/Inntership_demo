@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\GumshoeRepository;
+use Request;
 use Auth;
 
 class FollowPostController extends Controller
@@ -23,21 +24,27 @@ class FollowPostController extends Controller
     /**
      * Save status follow by id post
      *
-     * @param id $id id post
+     * @param requets $requets requets post
      *
      * @return text
      */
-    public function follow($id)
+    public function follow(Request $requets)
     {
+        if ($requets::ajax()) {
+            $id=$requets::input('id');
+        }
+        if (empty($id) or  !is_numeric($id)) {
+            return config('constants.not_follows');
+        }
         $inputs['user_id'] = Auth::user()->id;
         $inputs['post_id'] = $id;
         $result = $this->gumshoeRepository->findById($inputs['user_id'], $inputs['post_id']);
         if (is_null($result)) {
             $this->gumshoeRepository->create($inputs);
-             return "follow";
+            return config('constants.follow');
         } else {
             $this->gumshoeRepository->delete($result->id);
-            return "unfollow";
+            return config('constants.unfollow');
         }
     }
 }

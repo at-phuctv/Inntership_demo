@@ -1,15 +1,15 @@
 $(document).ready(function(){
     $('.follow_post_user').click(function(){
-        var url = "/user/follow-post/";
+
         var dataLogin = $(this).attr('dataUser');
         var postId = $(this).val();
-        url += postId;
+        var _token=$('input[name="_token"]').val();
         if(dataLogin) {
-            var get = "GET";
             $.ajax({
-                type: get,
+                type: 'POST',
                 url: url,
                 dataType: 'text',
+                data:{'id':postId, '_token':_token},
                 success: function(data) {
                 alert('I have ' + data + ' post');
                 },

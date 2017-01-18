@@ -18,6 +18,7 @@
                     <p>{{ $value->acreage}}</p>
                     <p>{{ $value->price}}</p>
                     <p>{{ $value->address}}</p>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <button class="follow_post_user" value="{{$value->id}}" dataUser="{{ (!(Auth::guest()))? Auth::user()->email :''}}"><i class="glyphicon glyphicon-eye-open"></i></button>
                   </div>
                    <div class="col-md-4 welcome-img">
