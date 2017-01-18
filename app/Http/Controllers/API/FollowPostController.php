@@ -29,9 +29,9 @@ class FollowPostController extends Controller
      */
     public function follow($id)
     {
-        $userId = $inputs['user_id'] = Auth::user()->id;
-        $postId = $inputs['post_id'] = $id;
-        $result = $this->gumshoeRepository->findById($userId, $postId);
+        $inputs['user_id'] = Auth::user()->id;
+        $inputs['post_id'] = $id;
+        $result = $this->gumshoeRepository->findById($inputs['user_id'], $inputs['post_id']);
         if (is_null($result)) {
             $this->gumshoeRepository->create($inputs);
              return "follow";
