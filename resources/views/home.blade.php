@@ -18,9 +18,7 @@
                     <p>{{ $value->acreage}}</p>
                     <p>{{ $value->price}}</p>
                     <p>{{ $value->address}}</p>
-                    <button class="follow_post_user" value="{{$value->id}}" dataUser="
-                    {{ (!(Auth::guest()))? Auth::user()->email :''}}
-                    "><i class="glyphicon glyphicon-eye-open"></i></button>
+                    <button class="follow_post_user" value="{{$value->id}}" dataUser="{{ (!(Auth::guest()))? Auth::user()->email :''}}"><i class="glyphicon glyphicon-eye-open"></i></button>
                   </div>
                    <div class="col-md-4 welcome-img">
                      <img class="img-responsive " src="{{ trans('constants.image')}}" alt="">  
