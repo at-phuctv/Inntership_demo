@@ -25,3 +25,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function()
 });
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/follow-post/{id}', 'API\FollowPostController@follow' );
+
+Route::group(['middleware' => 'auth', 'prefix' => 'user'], function()
+{
+    Route::get('/follow-post/{id}', 'API\FollowPostController@follow' );
+});

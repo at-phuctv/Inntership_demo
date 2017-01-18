@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.follow_post_user').click(function(){
-        var url = "/follow-post/";
+        var url = "/user/follow-post/";
         var dataLogin = $(this).attr('dataUser');
         var postId = $(this).val();
         url += postId;
