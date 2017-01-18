@@ -5,12 +5,14 @@ namespace App\Http\Controllers\API;
 //use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\GumshoeRepository;
+use App\Models\Post;
 use Request;
 use Auth;
 
 class FollowPostController extends Controller
 {
     protected $gumshoeRepository;
+
     /**
      * Construct function
      *
@@ -33,7 +35,8 @@ class FollowPostController extends Controller
         if ($requets::ajax()) {
             $id=$requets::input('id');
         }
-        if (empty($id) or  !is_numeric($id)) {
+        $post=Post::where('id', $id)->first();
+        if (is_null($post)) {
             return config('constants.not_follows');
         }
         $inputs['user_id'] = Auth::user()->id;
