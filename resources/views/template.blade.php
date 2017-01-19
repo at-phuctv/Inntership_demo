@@ -22,7 +22,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--webfont-->
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="{{ URL::asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript">
+  var url = '{{ route('get.post.follow') }}';
+</script>
 <script type="text/javascript" src="{{ URL::asset('js/login.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/style.js')}}"></script>
 <script src="{{ URL::asset('bower_components/easydropdown/src/jquery.easydropdown.js') }}"></script>
 <!--Animation-->
 <script src="{{ URL::asset('bower_components/wow//dist/wow.min.js')}}"></script>
@@ -90,7 +94,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                    </div>
 
                   @else
-                       <div id="loginContainer" class="image_user"><a href="#" id="loginButton"><img id="imageuser" src="{{asset(trans('constants.image'))}}/2017-01-12 04:14:52a.jpg">
+                       <div id="loginContainer" class="image_user"><a href="#" id="loginButton"><img id="imageuser" src="{{asset(trans('constants.image').Auth::user()->image)}}">
 
                        <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

@@ -18,13 +18,19 @@
                     <p>{{ $value->acreage}}</p>
                     <p>{{ $value->price}}</p>
                     <p>{{ $value->address}}</p>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <button class="follow_post_user" value="{{$value->id}}" dataUser="{{ (!(Auth::guest()))? Auth::user()->email :''}}"><i class="glyphicon glyphicon-eye-open"></i></button>
                   </div>
                    <div class="col-md-4 welcome-img">
                      <img class="img-responsive " src="{{ trans('constants.image')}}" alt="">  
                    </div>
                   <div class="clearfix"></div>
                 </div>
+
                 </div>
             @endforeach
+             @foreach($errors->all() as $value)
+    <div class="alert alert-warning">{{ $value }}</div>
+    @endforeach
   </div>
 @endsection
