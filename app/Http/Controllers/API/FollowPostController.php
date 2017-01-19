@@ -35,10 +35,6 @@ class FollowPostController extends Controller
         if ($requets->ajax()) {
             $id=$requets->input('id');
         }
-        $post=Post::where('id', $id)->first();
-        if (is_null($post)) {
-            return response()->json(['value' => config('constants.not_follows')]);
-        }
         $inputs['user_id'] = Auth::user()->id;
         $inputs['post_id'] = $id;
         $result = $this->gumshoeRepository->findById($inputs['user_id'], $inputs['post_id']);

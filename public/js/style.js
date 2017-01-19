@@ -14,9 +14,7 @@ $(document).ready(function(){
                  alert('I have '+ data.value + 'post');
                 },
                 error: function(data) {
-                     console.log(data);
                      alert(data.responseJSON.id[0]);
-                    
                 }
             });
         } else {

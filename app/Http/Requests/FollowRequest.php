@@ -24,7 +24,8 @@ class FollowRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|integer'
+            'id' => 'required|integer|exists:posts',
+
         ];
     }
 
@@ -38,6 +39,7 @@ class FollowRequest extends FormRequest
         return [
             'id.required' => 'Please enter the number',
             'id.integer' => 'Please leave the default value',
+            'id.exists' => 'This post no longer exists',
         ];
     }
 }
