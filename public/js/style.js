@@ -8,13 +8,15 @@ $(document).ready(function(){
             $.ajax({
                 type: 'POST',
                 url: url,
-                dataType: 'text',
+                dataType: 'json',
                 data:{'id':postId, '_token':_token},
                 success: function(data) {
-                alert('I have ' + data + ' post');
+                 alert('I have '+ data.value + 'post');
                 },
                 error: function(data) {
-                    console.log('Error:', data);
+                     console.log(data);
+                     alert(data.responseJSON.id[0]);
+                    
                 }
             });
         } else {

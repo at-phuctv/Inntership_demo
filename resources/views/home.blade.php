@@ -29,5 +29,8 @@
 
                 </div>
             @endforeach
+             @foreach($errors->all() as $value)
+    <div class="alert alert-warning">{{ $value }}</div>
+    @endforeach
   </div>
 @endsection

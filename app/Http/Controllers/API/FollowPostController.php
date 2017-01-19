@@ -6,7 +6,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Repositories\GumshoeRepository;
 use App\Models\Post;
-use Request;
+use App\Http\Requests\FollowRequest;
 use Auth;
 
 class FollowPostController extends Controller
@@ -30,24 +30,24 @@ class FollowPostController extends Controller
      *
      * @return text
      */
-    public function follow(Request $requets)
+    public function follow(FollowRequest $requets)
     {
-        if ($requets::ajax()) {
-            $id=$requets::input('id');
+        if ($requets->ajax()) {
+            $id=$requets->input('id');
         }
         $post=Post::where('id', $id)->first();
         if (is_null($post)) {
-            return config('constants.not_follows');
+            return response()->json(['value' => config('constants.not_follows')]);
         }
         $inputs['user_id'] = Auth::user()->id;
         $inputs['post_id'] = $id;
         $result = $this->gumshoeRepository->findById($inputs['user_id'], $inputs['post_id']);
         if (is_null($result)) {
             $this->gumshoeRepository->create($inputs);
-            return config('constants.follow');
+            return response()->json(['value' => config('constants.follow')]);
         } else {
             $this->gumshoeRepository->delete($result->id);
-            return config('constants.unfollow');
+            return response()->json(['value' => config('constants.unfollow')]);
         }
     }
 }
